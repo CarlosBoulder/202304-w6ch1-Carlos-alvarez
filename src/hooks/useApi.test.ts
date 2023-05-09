@@ -12,9 +12,9 @@ describe("Given a getTasks function", () => {
         },
       } = renderHook(() => useApi());
 
-      const movies = await getTasks();
+      const tasks = await getTasks();
 
-      expect(movies).toStrictEqual(expectListTasks);
+      expect(tasks).toStrictEqual(expectListTasks);
     });
   });
 });
