@@ -5,18 +5,21 @@ export interface TasksState {
   tasks: TasksStructure[];
 }
 
-export const initialTasksState: TasksState = {
+export const initialState: TasksState = {
   tasks: [],
 };
 
 export const tasksSlice = createSlice({
-  initialState: initialTasksState,
   name: "tasks",
+  initialState,
   reducers: {
     loadTasks: (
-      _currentState,
-      action: PayloadAction<TasksState>
-    ): TasksState => ({ ...action.payload }),
+      currentState,
+      action: PayloadAction<TasksStructure[]>
+    ): TasksState => ({
+      ...currentState,
+      tasks: [...action.payload],
+    }),
   },
 });
 
