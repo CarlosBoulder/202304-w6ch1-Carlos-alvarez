@@ -1,5 +1,5 @@
 import { TasksState, loadTasksActionCreator, tasksReducer } from "./tasksSlice";
-import TasksStructure from "./types";
+import TaskStructure from "./types";
 
 describe("Given a taskReducer reducer", () => {
   describe("When it receives an empty tasks list and a load tasks action with two tasks", () => {
@@ -8,7 +8,7 @@ describe("Given a taskReducer reducer", () => {
         tasks: [],
       };
 
-      const newTasks: TasksStructure[] = [
+      const newTasks: TaskStructure[] = [
         {
           id: 1,
           name: "climb",

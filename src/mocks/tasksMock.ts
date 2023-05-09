@@ -1,6 +1,6 @@
-import TasksStructure from "../store/tasks/types";
+import TaskStructure from "../store/tasks/types";
 
-const taskMocks: TasksStructure[] = [
+const taskMocks: TaskStructure[] = [
   {
     id: 1,
     name: "climb",
