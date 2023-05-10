@@ -10,7 +10,7 @@ const TaskCard = ({ task: { name, isDone } }: TaskCardProps): JSX.Element => {
     <div>
       <label>
         <input type="checkbox" value={isDoneForCheckbox} />
-        {name}
+        <h3>{name}</h3>
       </label>
       <button>Delete</button>
     </div>
