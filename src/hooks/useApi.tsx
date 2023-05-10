@@ -9,7 +9,12 @@ const useApi = () => {
     return tasks;
   }, []);
 
-  return { getTasks };
+  const deleteTasks = async (taskId: number) => {
+    const { status, data } = await axios.delete(`${apiUrl}/${taskId}`);
+    return { status, data };
+  };
+
+  return { getTasks, deleteTasks };
 };
 
 export default useApi;

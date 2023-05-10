@@ -14,7 +14,7 @@ const taskMocks: TaskStructure[] = [
   {
     id: 3,
     name: "sleep",
-    isDone: false,
+    isDone: true,
   },
 ];
 

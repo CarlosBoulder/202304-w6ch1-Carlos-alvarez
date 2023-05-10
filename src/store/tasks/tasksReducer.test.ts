@@ -1,4 +1,10 @@
-import { TasksState, loadTasksActionCreator, tasksReducer } from "./tasksSlice";
+import taskMocks from "../../mocks/tasksMock";
+import {
+  TasksState,
+  deleteTasksActionCreator,
+  loadTasksActionCreator,
+  tasksReducer,
+} from "./tasksSlice";
 import TaskStructure from "./types";
 
 describe("Given a taskReducer reducer", () => {
@@ -29,6 +35,24 @@ describe("Given a taskReducer reducer", () => {
       const newTasksState = tasksReducer(currentTasksState, loadTasksAction);
 
       expect(newTasksState).toStrictEqual(expectedTasksState);
+    });
+  });
+
+  describe("When it receives a taskList with three tasks and a delete action for number 2 id", () => {
+    test("Then it should return a list of tasks with two tasks", () => {
+      const currentTaskState: TasksState = {
+        tasks: taskMocks,
+      };
+
+      const expectedTaskState: TasksState = {
+        tasks: [],
+      };
+
+      const deleteTasksAction = deleteTasksActionCreator(taskMocks[1].id);
+
+      const newTasks = tasksReducer(currentTaskState, deleteTasksAction);
+
+      expect(newTasks).toStrictEqual(expectedTaskState);
     });
   });
 });
