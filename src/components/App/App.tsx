@@ -11,8 +11,12 @@ const App = (): JSX.Element => {
 
   useEffect(() => {
     (async () => {
-      const tasks = await getTasks();
-      dispatch(loadTasksActionCreator(tasks));
+      try {
+        const tasks = await getTasks();
+        dispatch(loadTasksActionCreator(tasks));
+      } catch {
+        return;
+      }
     })();
   }, [dispatch, getTasks]);
 
